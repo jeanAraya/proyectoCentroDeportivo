@@ -1,0 +1,51 @@
+cmake_minimum_required(VERSION 4.4)
+project(CentroDeportivo)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(.)
+include_directories(.idea)
+include_directories(datos)
+
+add_executable(CentroDeportivo
+        .idea/.gitignore
+        .idea/workspace.xml
+        datos/clientes.csv
+        datos/espacios.csv
+        datos/reservas.csv
+        CanchaBaloncesto.cpp
+        CanchaBaloncesto.h
+        CanchaFutbol.cpp
+        CanchaFutbol.h
+        CanchaTenis.cpp
+        CanchaTenis.h
+        CargadorDatos.cpp
+        CargadorDatos.h
+        Cliente.cpp
+        Cliente.h
+        CustomException.cpp
+        CustomException.h
+        Espacio.cpp
+        Espacio.h
+        Fachada.cpp
+        Fachada.h
+        Factory.cpp
+        Factory.h
+        GestorSistema.cpp
+        GestorSistema.h
+        GuardadorDatos.cpp
+        GuardadorDatos.h
+        Iterador.h
+        ListaTemplate.h
+        main.cpp
+        Menu.cpp
+        Menu.h
+        NodoTemplate.h
+        Piscina.cpp
+        Piscina.h
+        Reporte.cpp
+        Reporte.h
+        Reserva.cpp
+        Reserva.h
+        SalasEntrenamiento.cpp
+        SalasEntrenamiento.h)
