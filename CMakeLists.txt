@@ -49,4 +49,13 @@ add_executable(CentroDeportivo
         Reserva.h
         SalasEntrenamiento.cpp
         SalasEntrenamiento.h
-        Reporte.h)
+        Reporte.h
+        MenuClientes.cpp
+        MenuClientes.h
+        MenuEspacios.cpp
+        MenuEspacios.h
+        MenuReservas.cpp
+        MenuReservas.h
+        IMenu.h
+        MenuReportes.cpp
+        MenuReportes.h)

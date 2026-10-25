@@ -1,19 +1,8 @@
 #include "GestorSistema.h"
+#include "IMenu.h"
 
-class Menu {
-
-    void registrarCliente();
-    void registrarEspacio();
-    void registrarReserva();
-    void cancelarReserva();
+class Menu : IMenu{
     bool validarGuardado();
-    string extraFutbol();
-    string extraBaloncesto();
-    string extraTenis();
-    string extraPiscina();
-    string extraSalaEntreno();
-
 public:
-    Menu();
-    void mostrarMenu();
+    void mostrarMenu() override;
 };
