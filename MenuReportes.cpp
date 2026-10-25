@@ -12,8 +12,8 @@ void MenuReportes::gestionReportes() {
     cout << "             Gestionar Reportes             " << endl;
     cout << "--------------------------------------------" << endl;
     cout << "1. Total de reservas" << endl;
-    cout << "2. Cliente con más reservas" << endl;
-    cout << "3. Espacio más reservado" << endl;
+    cout << "2. Cliente con mas reservas" << endl;
+    cout << "3. Espacio mas reservado" << endl;
     cout << "4. Reservas activas" << endl;
     cout << "0. Salir" << endl;
     cout << "Ingrese una opcion: ";
@@ -52,4 +52,19 @@ void MenuReportes::reservasActivas() {
 
 void MenuReportes::mostrarMenu() {
     gestionReportes();
+}
+std::string MenuReportes::reporteTotalReservas() {
+    return reporte.totalReservas();
+}
+
+std::string MenuReportes::reporteClienteConMasReservas() {
+    return reporte.clienteConMasReservas();
+}
+
+std::string MenuReportes::reporteEspacioMasReservado() {
+    return reporte.espacioMasReservado();
+}
+
+std::string MenuReportes::reporteReservasActivas() {
+    return reporte.reservasActivas();
 }
