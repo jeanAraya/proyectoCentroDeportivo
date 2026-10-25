@@ -22,7 +22,7 @@ class Iterador {
 public:
     explicit Iterador(ListaTemplate<T>& lista) {
         this->lista = &lista;
-        actual = lista.getPrimero();
+        actual = lista.primero;
     }
 
     bool hayMas() const {

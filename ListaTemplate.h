@@ -2,12 +2,14 @@
 #define PROYECTOBIBLIOTECA_LISTATEMPLATE_H
 
 #include "NodoTemplate.h"
+template <class T>
+class Iterador;
 
 template <class T>
 class ListaTemplate {
+    friend class Iterador<T>;
     NodoTemplate<T>* primero;
     NodoTemplate<T>* ultimo;
-
 public:
     ListaTemplate() {
         primero = nullptr;

@@ -1,18 +1,18 @@
-cmake_minimum_required(VERSION 4.4)
+cmake_minimum_required(VERSION 4.2.2)
 project(CentroDeportivo)
 
 set(CMAKE_CXX_STANDARD 14)
 
 include_directories(.)
 include_directories(.idea)
-include_directories(datos)
+include_directories(cmake-build-debug/datos)
 
 add_executable(CentroDeportivo
         .idea/.gitignore
         .idea/workspace.xml
-        datos/clientes.csv
-        datos/espacios.csv
-        datos/reservas.csv
+        cmake-build-debug/clientes.csv
+        cmake-build-debug/espacios.csv
+        cmake-build-debug/reservas.csv
         CanchaBaloncesto.cpp
         CanchaBaloncesto.h
         CanchaFutbol.cpp
@@ -48,4 +48,5 @@ add_executable(CentroDeportivo
         Reserva.cpp
         Reserva.h
         SalasEntrenamiento.cpp
-        SalasEntrenamiento.h)
+        SalasEntrenamiento.h
+        Reporte.h)
