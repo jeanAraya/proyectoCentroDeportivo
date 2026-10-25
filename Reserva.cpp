@@ -25,12 +25,7 @@ Reserva::Reserva(const std::string& codigo, const std::string& identificacionCli
     if (codigo.empty() || identificacionCliente.empty() || codigoEspacio.empty()) {
         throw CustomException("El codigo, el cliente y el espacio de la reserva no pueden estar vacios.");
     }
-    if (!fechaValida(fecha)) {
-        throw CustomException("Fecha invalida (use AAAA-MM-DD): " + fecha);
-    }
-    if (hora < 0 || hora > 23) {
-        throw CustomException("Hora invalida (use un valor entre 0 y 23).");
-    }
+    validarFechaHora(fecha, hora);
 
     this->codigo = codigo;
     this->identificacionCliente = identificacionCliente;
@@ -41,6 +36,15 @@ Reserva::Reserva(const std::string& codigo, const std::string& identificacionCli
 }
 
 Reserva::~Reserva() {
+}
+
+void Reserva::validarFechaHora(const std::string& fecha, int hora) {
+    if (!fechaValida(fecha)) {
+        throw CustomException("Fecha invalida (use AAAA-MM-DD): " + fecha);
+    }
+    if (hora < 0 || hora > 23) {
+        throw CustomException("Hora invalida (use un valor entre 0 y 23).");
+    }
 }
 
 std::string Reserva::getCodigo() const {
