@@ -3,7 +3,6 @@
 
 #include <exception>
 #include <string>
-// Se usa cuando hay datos inválidos, registros duplicados, elementos no encontrados, etc.
 class CustomException : public std::exception {
     std::string mensaje;
 

@@ -2,6 +2,7 @@
 #include "CustomException.h"
 #include <cctype>
 #include <iomanip>
+#include <iostream>
 #include <sstream>
 
 namespace {
@@ -40,10 +41,11 @@ Reserva::~Reserva() {
 
 void Reserva::validarFechaHora(const std::string& fecha, int hora) {
     if (!fechaValida(fecha)) {
-        throw CustomException("Fecha invalida (use AAAA-MM-DD): " + fecha);
+        std::cout << "Fecha invalida (use AAAA-MM-DD): " + fecha << std::endl;
+        return;
     }
     if (hora < 0 || hora > 23) {
-        throw CustomException("Hora invalida (use un valor entre 0 y 23).");
+        std::cout << "Hora invalida (use un valor entre 0 y 23)." << std::endl;
     }
 }
 
@@ -98,34 +100,3 @@ std::string Reserva::toCSV() const {
            std::to_string(hora) + "," + (activa ? "1" : "0");
 }
 
-Reserva* Reserva::fromCSV(const std::string& linea) {
-    std::string limpia = linea;
-    if (!limpia.empty() && limpia.back() == '\r') {
-        limpia.pop_back();
-    }
-
-    std::stringstream ss(limpia);
-    std::string campos[6];
-    std::string campo;
-    int cantidad = 0;
-
-    while (std::getline(ss, campo, ',')) {
-        if (cantidad < 6) {
-            campos[cantidad] = campo;
-        }
-        cantidad++;
-    }
-
-    if (cantidad != 6) {
-        throw CustomException("Linea de reserva invalida: " + linea);
-    }
-
-    int hora;
-    try {
-        hora = std::stoi(campos[4]);
-    } catch (const std::exception&) {
-        throw CustomException("Hora invalida en la linea de reserva: " + linea);
-    }
-
-    return new Reserva(campos[0], campos[1], campos[2], campos[3], hora, campos[5] == "1");
-}

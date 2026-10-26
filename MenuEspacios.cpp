@@ -108,6 +108,7 @@ void MenuEspacios::buscarEspacio() {
     Espacio* aux = GestorSistema::getInstancia().buscarEspacio(cod);
     if (aux != nullptr) {
         cout<<aux->toString()<<endl;
+        return;
     }
     cout << "No se encontro el espacio con codigo: " << cod << endl;
 }
@@ -121,7 +122,7 @@ string MenuEspacios::extraFutbol(){
 
 string MenuEspacios::extraBaloncesto(){
     string esCubierta;
-    cout << "¿La cancha de baloncesto es cubierta?: " << endl;
+    cout << "La cancha de baloncesto es cubierta?: " << endl;
     cout << "1. Si" << endl;
     cout << "2. No" << endl;
     int opc = 3;
@@ -130,7 +131,7 @@ string MenuEspacios::extraBaloncesto(){
         if (opc == 1) {
             esCubierta = "1";
         }
-        if (opc == 2) {
+        else if (opc == 2) {
             esCubierta = "0";
         }else{
             cout << "Opcion invalida. Intente de nuevo" << endl;
@@ -149,7 +150,7 @@ string MenuEspacios::extraTenis(){
 
 string MenuEspacios::extraPiscina(){
     string climatizada;
-    cout << "¿La piscina es climatizada?: ";
+    cout << "La piscina es climatizada?: ";
     cout << "1. Si" << endl;
     cout << "2. No" << endl;
     int opc = 3;
@@ -158,7 +159,7 @@ string MenuEspacios::extraPiscina(){
         if (opc == 1) {
             climatizada = "1";
         }
-        if (opc == 2) {
+        else if (opc == 2) {
             climatizada = "0";
         }else{
             cout << "Opcion invalida. Intente de nuevo" << endl;
@@ -170,7 +171,7 @@ string MenuEspacios::extraPiscina(){
 
 string MenuEspacios::extraSalaEntreno(){
     string proyector;
-    cout << "¿La sala de entrenamiento tiene proyector?: ";
+    cout << "La sala de entrenamiento tiene proyector?: ";
     cout << "1. Si" << endl;
     cout << "2. No" << endl;
     int opc = 3;
@@ -179,7 +180,7 @@ string MenuEspacios::extraSalaEntreno(){
         if (opc == 1) {
             proyector = "1";
         }
-        if (opc == 2) {
+        else if (opc == 2) {
             proyector = "0";
         }else{
             cout << "Opcion invalida. Intente de nuevo" << endl;

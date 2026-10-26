@@ -4,7 +4,6 @@
 #include "Espacio.h"
 #include <string>
 
-// Espacio concreto: cancha de tenis. Atributo propio: superficie (ej. "Arcilla", "Dura", "Cesped").
 class CanchaTenis : public Espacio {
     std::string superficie;
 

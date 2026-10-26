@@ -3,9 +3,6 @@
 
 #include <string>
 
-// Clase base de todos los espacios(canchas de futbol, tenis)
-// Formato CSV (espacios.csv): tipo, codigo, nombre, capacidad, precioHora, extra
-//   tipo: FUTBOL | BALONCESTO | TENIS | PISCINA | SALA
 class Espacio {
     std::string codigo;
     std::string nombre;

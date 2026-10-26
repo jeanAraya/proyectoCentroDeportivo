@@ -4,8 +4,6 @@
 #include "Espacio.h"
 #include <string>
 
-// Espacio concreto: cancha de baloncesto. Atributo propio: techada.
-// En el CSV el campo extra es "1" (techada) o "0" (descubierta).
 class CanchaBaloncesto : public Espacio {
     bool techada;
 

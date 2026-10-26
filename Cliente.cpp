@@ -65,28 +65,3 @@ std::string Cliente::toString() const {
 std::string Cliente::toCSV() const {
     return identificacion + "," + nombre + "," + telefono + "," + correo;
 }
-
-Cliente* Cliente::fromCSV(const std::string& linea) {
-    std::string limpia = linea;
-    if (!limpia.empty() && limpia.back() == '\r') {
-        limpia.pop_back();
-    }
-
-    std::stringstream ss(limpia);
-    std::string campos[4];
-    std::string campo;
-    int cantidad = 0;
-
-    while (std::getline(ss, campo, ',')) {
-        if (cantidad < 4) {
-            campos[cantidad] = campo;
-        }
-        cantidad++;
-    }
-
-    if (cantidad != 4) {
-        throw CustomException("Linea de cliente invalida: " + linea);
-    }
-
-    return new Cliente(campos[0], campos[1], campos[2], campos[3]);
-}

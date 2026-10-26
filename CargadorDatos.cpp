@@ -41,9 +41,6 @@ void CargadorDatos::leerClientes(string entrada, char delim) {
         getline(ss, correo, delim);
 
         GestorSistema::getInstancia().registrarCliente(Factory::crearCliente(identificacion, nombre, telefono, correo));
-        // if (!GestorSistema::getInstancia().registrarCliente(cliente)) {
-        //     delete cliente;
-        // }
         cout<<"Cliente cargado"<<endl;
     }
     archivo.close();

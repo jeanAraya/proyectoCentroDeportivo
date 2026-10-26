@@ -5,15 +5,6 @@
 #include "NodoTemplate.h"
 #include "CustomException.h"
 
-// PATRÓN ITERATOR
-// Permite recorrer cualquier ListaTemplate<T> (clientes, espacios, reservas) sin exponer
-// sus nodos ni su estructura interna. Ni el Menu ni la Fachada recorren nodos directamente.
-//
-// Uso:
-//     Iterador<Cliente> it(listaClientes);
-//     while (it.hayMas()) {
-//         Cliente* c = it.siguiente();
-//     }
 template <class T>
 class Iterador {
     ListaTemplate<T>* lista;

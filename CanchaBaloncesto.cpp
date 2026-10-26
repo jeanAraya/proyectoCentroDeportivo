@@ -22,7 +22,6 @@ std::string CanchaBaloncesto::getTipo() const {
     return "BALONCESTO";
 }
 
-// Regla de ejemplo: la cancha techada tiene un recargo del 10%.
 double CanchaBaloncesto::calcularCosto(int horas) const {
     if (horas <= 0) {
         throw CustomException("La cantidad de horas debe ser mayor que cero.");

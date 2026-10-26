@@ -25,6 +25,7 @@ void GuardadorDatos::guardar(string salida) {
 
 void GuardadorDatos::guardarClientes(string salida) {
     ofstream archivo(salida, ios::out);
+    archivo << "identificacion,nombre,telefono,correo" << '\n';
     Iterador<Cliente> iterador(*GestorSistema::getInstancia().getListaClientes());
     while (iterador.hayMas()) {
         Cliente* cliente = iterador.siguiente();
@@ -34,9 +35,9 @@ void GuardadorDatos::guardarClientes(string salida) {
     archivo.close();
 }
 
-
 void GuardadorDatos::guardarEspacios(string salida) {
     ofstream archivo(salida, ios::out);
+    archivo << "tipo,codigo,nombre,capacidad,precioHora,extra" << '\n';
     Iterador<Espacio> iterador(*GestorSistema::getInstancia().getListaEspacios());
     while (iterador.hayMas()) {
         Espacio* espacio = iterador.siguiente();
@@ -47,6 +48,7 @@ void GuardadorDatos::guardarEspacios(string salida) {
 
 void GuardadorDatos::guardarReservas(string salida) {
     ofstream archivo(salida, ios::out);
+    archivo << "codigo,identificacionCliente,codigoEspacio,fecha,hora,activa" << '\n';
     Iterador<Reserva> iterador(*GestorSistema::getInstancia().getListaReservas());
     while (iterador.hayMas()) {
         Reserva* reserva = iterador.siguiente();

@@ -58,9 +58,9 @@ void MenuReservas::registrarReserva() {
     cin >> idCliente;
     cout << "Ingrese el codigo del espacio: ";
     cin >> codEspacio;
-    cout << "Ingrese la fecha de la reserva: ";
+    cout << "Ingrese la fecha de la reserva (AAAA-MM-DD): ";
     cin >> fecha;
-    cout << "Ingrese la hora de la reserva: ";
+    cout << "Ingrese la hora de la reserva (0-23): ";
     cin >> hora;
     GestorSistema::getInstancia().registrarReserva(Factory::crearReserva(codReserva, idCliente, codEspacio, fecha, hora));
 }
@@ -85,6 +85,7 @@ void MenuReservas::buscarReserva() {
     Reserva* aux = GestorSistema::getInstancia().buscarReserva(cod);
     if (aux != nullptr) {
         cout<<aux->toString()<<endl;
+        return;
     }
     cout << "No se encontro la reserva con codigo: " << cod << endl;
 }

@@ -17,7 +17,7 @@ void MenuClientes::gestionClientes() {
     cout << "2. Modificar Cliente" << endl;
     cout << "3. Buscar Cliente" << endl;
     cout << "4. Listar Clientes" << endl;
-    cout << "0. Volver al Menú Principal" << endl;
+    cout << "0. Volver al Menu Principal" << endl;
     cout << "Seleccione una opcion: ";
     cin >> opc;
     switch (opc) {
@@ -36,7 +36,7 @@ void MenuClientes::gestionClientes() {
         case 0:
             break;
         default:
-            cout << "Opción inválida. Intente de nuevo." << endl;
+            cout << "Opcion inválida. Intente de nuevo." << endl;
             break;
     }
 }
@@ -94,7 +94,7 @@ void MenuClientes::modificarCliente() {
             }
 
             default:
-                cout << "Opción inválida. Intente de nuevo." << endl;
+                cout << "Opción invalida. Intente de nuevo." << endl;
                 break;
         }
     }
@@ -115,7 +115,9 @@ void MenuClientes::buscarCliente() {
     Cliente* aux = buscarClienteAux();
     if (aux != nullptr) {
         cout << aux->toString() << endl;
+        return;
     }
+    cout << "No se encontro el cliente con esa identificacion" << endl;
 }
 
 

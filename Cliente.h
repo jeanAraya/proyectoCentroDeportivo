@@ -3,8 +3,6 @@
 
 #include <string>
 
-// Representa a un cliente del centro deportivo.
-// Formato CSV (clientes.csv): identificacion,nombre,telefono,correo
 class Cliente {
     std::string identificacion;
     std::string nombre;
@@ -21,16 +19,12 @@ public:
     std::string getTelefono() const;
     std::string getCorreo() const;
 
-    // La identificación no se modifica, porque es la llave de búsqueda.
     void setNombre(const std::string& nombre);
     void setTelefono(const std::string& telefono);
     void setCorreo(const std::string& correo);
 
     std::string toString() const;
     std::string toCSV() const;
-
-    // Crea un Cliente (con new) a partir de una línea CSV. Lanza CustomException si es inválida.
-    static Cliente* fromCSV(const std::string& linea);
 };
 
 #endif

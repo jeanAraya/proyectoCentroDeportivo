@@ -4,8 +4,6 @@
 #include "Espacio.h"
 #include <string>
 
-// Espacio concreto: sala de entrenamiento funcional. Atributo propio: tipo de entrenamiento
-// (ej. "Funcional", "Crossfit"). Su tipo en el CSV es "SALA".
 class SalasEntrenamiento : public Espacio {
     bool tieneProyector;
 

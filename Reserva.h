@@ -38,9 +38,6 @@ public:
 
     std::string toString() const;
     std::string toCSV() const;
-
-    // Crea una Reserva (con new) a partir de una línea CSV. Lanza CustomException si es inválida.
-    static Reserva* fromCSV(const std::string& linea);
 };
 
 #endif
