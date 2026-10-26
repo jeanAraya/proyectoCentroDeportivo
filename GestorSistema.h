@@ -36,11 +36,13 @@ public:
     bool cancelarReserva(string idReserva);
 
     void mostrarEspacios();
-    void mostrarReservas();
+    void espaciosOcupados();
+    void espaciosDisponibles();
     void mostrarClientes();
+    void mostrarReservas();
+    void reservasActivas();
 
     Cliente* buscarCliente(string id);
     Espacio* buscarEspacio(string codigo);
     Reserva* buscarReserva(string id);
-    // Prestamo* buscarPrestamo(string idMaterial);
 };

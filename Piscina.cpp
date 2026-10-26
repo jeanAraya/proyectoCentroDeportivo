@@ -2,26 +2,24 @@
 #include "CustomException.h"
 
 Piscina::Piscina(const std::string& codigo, const std::string& nombre, int capacidad,
-                 double precioHora, int cantidadCarriles)
+                 double precioHora, bool tieneClimatizacion)
     : Espacio(codigo, nombre, capacidad, precioHora) {
-    if (cantidadCarriles <= 0) {
-        throw CustomException("La cantidad de carriles debe ser mayor que cero.");
-    }
-    this->cantidadCarriles = cantidadCarriles;
+    this->tieneClimatizacion = tieneClimatizacion;
 }
 
 Piscina::~Piscina() {
 }
 
-int Piscina::getCantidadCarriles() const {
-    return cantidadCarriles;
+bool Piscina::getTieneClimatizacion() const {
+    return tieneClimatizacion;
 }
 
-void Piscina::setCantidadCarriles(int cantidadCarriles) {
-    if (cantidadCarriles <= 0) {
-        throw CustomException("La cantidad de carriles debe ser mayor que cero.");
-    }
-    this->cantidadCarriles = cantidadCarriles;
+void Piscina::setTieneClimatizacion(bool tieneClimatizacion) {
+    this->tieneClimatizacion = tieneClimatizacion;
+}
+
+std::string Piscina::toString() const {
+    return Espacio::toString() + " | Tiene climatización: " + (tieneClimatizacion ? "Sí" : "No");
 }
 
 std::string Piscina::getTipo() const {
@@ -35,10 +33,7 @@ double Piscina::calcularCosto(int horas) const {
     return getPrecioHora() * horas;
 }
 
-std::string Piscina::toString() const {
-    return Espacio::toString() + " | Carriles: " + std::to_string(cantidadCarriles);
-}
 
 std::string Piscina::toCSV() const {
-    return Espacio::toCSV() + "," + std::to_string(cantidadCarriles);
+    return Espacio::toCSV() + "," + std::to_string(tieneClimatizacion);
 }

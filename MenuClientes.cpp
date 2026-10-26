@@ -61,18 +61,61 @@ void MenuClientes::registrarCliente() {
 }
 
 void MenuClientes::modificarCliente() {
+    int opc;
+    Cliente* aux = buscarClienteAux();
+    if (aux != nullptr) {
+        cout<<"------ Modificar cliente ------"<<endl;
+        cout<<"1. Modificar nombre"<<endl;
+        cout<<"2. Modificar telefono"<<endl;
+        cout<<"3. Modificar correo"<<endl;
+        cout<<"Seleccione el campo a modificar: "<<endl;
+        cin >> opc;
+        switch (opc) {
+            case 1: {
+                string nombre;
+                cout << "Ingrese el nuevo nombre: ";
+                cin >> nombre;
+                aux->setNombre(nombre);
+                break;
+            }
+            case 2: {
+                string telefono;
+                cout << "Ingrese el nuevo telefono: ";
+                cin >> telefono;
+                aux->setTelefono(telefono);
+                break;
+            }
+            case 3: {
+                string correo;
+                cout << "Ingrese el nuevo correo: ";
+                cin >> correo;
+                aux->setCorreo(correo);
+                break;
+            }
+
+            default:
+                cout << "Opción inválida. Intente de nuevo." << endl;
+                break;
+        }
+    }
 }
 
-void MenuClientes::buscarCliente() {
+Cliente* MenuClientes::buscarClienteAux() {
     string id;
     cout << "Ingrese la identificacion del cliente a buscar: ";
     cin >> id;
-    const Cliente* aux = GestorSistema::getInstancia().buscarCliente(id);
-    if (aux == nullptr) {
-        cout << "El cliente con identificacion " << id << " no existe." << endl;
-        return;
+    Cliente* aux = GestorSistema::getInstancia().buscarCliente(id);
+    if (aux != nullptr) {
+        return aux;
     }
-    cout << aux->toString();
+    return nullptr;
+}
+
+void MenuClientes::buscarCliente() {
+    Cliente* aux = buscarClienteAux();
+    if (aux != nullptr) {
+        cout << aux->toString() << endl;
+    }
 }
 
 

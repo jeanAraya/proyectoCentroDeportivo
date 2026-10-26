@@ -94,12 +94,22 @@ void MenuEspacios::registrarEspacio() {
 }
 
 void MenuEspacios::mostrarEspaciosOcupados() {
+    GestorSistema::getInstancia().espaciosOcupados();
 }
 
 void MenuEspacios::mostrarEspaciosDisponibles() {
+    GestorSistema::getInstancia().espaciosDisponibles();
 }
 
 void MenuEspacios::buscarEspacio() {
+    string cod;
+    cout << "Ingrese la identificacion del espacio a buscar: ";
+    cin >> cod;
+    Espacio* aux = GestorSistema::getInstancia().buscarEspacio(cod);
+    if (aux != nullptr) {
+        cout<<aux->toString()<<endl;
+    }
+    cout << "No se encontro el espacio con codigo: " << cod << endl;
 }
 
 string MenuEspacios::extraFutbol(){

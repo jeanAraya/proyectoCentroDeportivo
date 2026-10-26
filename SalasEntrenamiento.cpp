@@ -2,26 +2,21 @@
 #include "CustomException.h"
 
 SalasEntrenamiento::SalasEntrenamiento(const std::string& codigo, const std::string& nombre, int capacidad,
-                                       double precioHora, const std::string& tipoEntrenamiento)
+                                       double precioHora, bool tieneProyector)
     : Espacio(codigo, nombre, capacidad, precioHora) {
-    if (tipoEntrenamiento.empty()) {
-        throw CustomException("El tipo de entrenamiento no puede estar vacio.");
-    }
-    this->tipoEntrenamiento = tipoEntrenamiento;
+    this->tieneProyector = tieneProyector;
 }
 
 SalasEntrenamiento::~SalasEntrenamiento() {
 }
 
-std::string SalasEntrenamiento::getTipoEntrenamiento() const {
-    return tipoEntrenamiento;
+
+bool SalasEntrenamiento::getTieneProyector() const {
+    return tieneProyector;
 }
 
-void SalasEntrenamiento::setTipoEntrenamiento(const std::string& tipoEntrenamiento) {
-    if (tipoEntrenamiento.empty()) {
-        throw CustomException("El tipo de entrenamiento no puede estar vacio.");
-    }
-    this->tipoEntrenamiento = tipoEntrenamiento;
+void SalasEntrenamiento::setTieneProyector(bool tieneProyector) {
+    this->tieneProyector = tieneProyector;
 }
 
 std::string SalasEntrenamiento::getTipo() const {
@@ -36,9 +31,9 @@ double SalasEntrenamiento::calcularCosto(int horas) const {
 }
 
 std::string SalasEntrenamiento::toString() const {
-    return Espacio::toString() + " | Entrenamiento: " + tipoEntrenamiento;
+    return Espacio::toString() + " | Tiene proyector: " + (tieneProyector ? "Sí" : "No");
 }
 
 std::string SalasEntrenamiento::toCSV() const {
-    return Espacio::toCSV() + "," + tipoEntrenamiento;
+    return Espacio::toCSV() + "," + std::to_string(tieneProyector);
 }

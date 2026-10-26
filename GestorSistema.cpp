@@ -128,6 +128,28 @@ void GestorSistema::mostrarEspacios() {
     }
 }
 
+void GestorSistema::espaciosOcupados() {
+    Iterador<Reserva> it(*listaReservas);
+    while (it.hayMas()) {
+        Reserva* reserva = it.siguiente();
+        Espacio* espacio = buscarEspacio(reserva->getCodigoEspacio());
+        if (espacio && reserva->estaActiva()) {
+            cout << espacio->toString() << endl;
+        }
+    }
+}
+
+void GestorSistema::espaciosDisponibles() {
+    Iterador<Reserva> it(*listaReservas);
+    while (it.hayMas()) {
+        Reserva* reserva = it.siguiente();
+        Espacio* espacio = buscarEspacio(reserva->getCodigoEspacio());
+        if (!(espacio && reserva->estaActiva())) {
+            cout << espacio->toString() << endl;
+        }
+    }
+}
+
 void GestorSistema::mostrarClientes() {
     Iterador<Cliente> it(*listaClientes);
     while (it.hayMas()) {
@@ -141,5 +163,15 @@ void GestorSistema::mostrarReservas() {
     while (it.hayMas()) {
         Reserva* reserva = it.siguiente();
         cout << reserva->toString() << endl;
+    }
+}
+
+void GestorSistema::reservasActivas() {
+    Iterador<Reserva> it(*listaReservas);
+    while (it.hayMas()) {
+        Reserva* reserva = it.siguiente();
+        if (reserva->estaActiva()) {
+            cout << reserva->toString() << endl;
+        }
     }
 }

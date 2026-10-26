@@ -4,17 +4,16 @@
 #include "Espacio.h"
 #include <string>
 
-// Espacio concreto: piscina. Atributo propio: cantidad de carriles.
 class Piscina : public Espacio {
-    int cantidadCarriles;
+    bool tieneClimatizacion;
 
 public:
     Piscina(const std::string& codigo, const std::string& nombre, int capacidad,
-            double precioHora, int cantidadCarriles);
+            double precioHora, bool tieneClimatizacion);
     ~Piscina() override;
 
-    int getCantidadCarriles() const;
-    void setCantidadCarriles(int cantidadCarriles);
+    bool getTieneClimatizacion() const;
+    void setTieneClimatizacion(bool tieneClimatizacion);
 
     std::string getTipo() const override;
     double calcularCosto(int horas) const override;

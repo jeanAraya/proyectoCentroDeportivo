@@ -6,6 +6,7 @@
 #include <iostream>
 
 using namespace std;
+
 void MenuReportes::gestionReportes() {
     int opc;
     cout << "--------------------------------------------" << endl;
@@ -20,16 +21,16 @@ void MenuReportes::gestionReportes() {
     cin >> opc;
     switch (opc) {
         case 1:
-            totalReservas();
+            cout << reporteTotalReservas();
             break;
         case 2:
-            clienteConMasReservas();
+            cout << reporteClienteConMasReservas();
             break;
         case 3:
-            espacioMasReservado();
+            cout << reporteEspacioMasReservado();
             break;
         case 4:
-            reservasActivas();
+            cout << reporteReservasActivas();
             break;
         case 0:
             break;
@@ -38,33 +39,25 @@ void MenuReportes::gestionReportes() {
     }
 }
 
-void MenuReportes::totalReservas() {
-}
-
-void MenuReportes::clienteConMasReservas() {
-}
-
-void MenuReportes::espacioMasReservado() {
-}
-
-void MenuReportes::reservasActivas() {
-}
-
 void MenuReportes::mostrarMenu() {
     gestionReportes();
 }
 std::string MenuReportes::reporteTotalReservas() {
+    Reporte reporte;
     return reporte.totalReservas();
 }
 
 std::string MenuReportes::reporteClienteConMasReservas() {
+    Reporte reporte;
     return reporte.clienteConMasReservas();
 }
 
 std::string MenuReportes::reporteEspacioMasReservado() {
+    Reporte reporte;
     return reporte.espacioMasReservado();
 }
 
 std::string MenuReportes::reporteReservasActivas() {
+    Reporte reporte;
     return reporte.reservasActivas();
 }

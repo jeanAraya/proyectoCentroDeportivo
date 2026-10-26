@@ -27,8 +27,6 @@ add_executable(CentroDeportivo
         CustomException.h
         Espacio.cpp
         Espacio.h
-        Fachada.cpp
-        Fachada.h
         Factory.cpp
         Factory.h
         GestorSistema.cpp

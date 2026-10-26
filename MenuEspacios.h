@@ -14,7 +14,7 @@ class MenuEspacios : public IMenu {
     void mostrarEspaciosDisponibles();
     void buscarEspacio();
 
-    std::string extraFutbol();
+    string extraFutbol();
     string extraBaloncesto();
     string extraTenis();
     string extraPiscina();

@@ -1,19 +1,11 @@
 #include "Reporte.h"
+
+#include "GestorSistema.h"
 #include "Iterador.h"
-
-Reporte::Reporte(ListaTemplate<Cliente>& clientes, ListaTemplate<Espacio>& espacios,
-                 ListaTemplate<Reserva>& reservas) {
-    this->clientes = &clientes;
-    this->espacios = &espacios;
-    this->reservas = &reservas;
-}
-
-Reporte::~Reporte() {
-}
 
 int Reporte::contarReservasDeCliente(const std::string& identificacion) {
     int cantidad = 0;
-    Iterador<Reserva> it(*reservas);
+    Iterador<Reserva> it(*GestorSistema::getInstancia().getListaReservas());
     while (it.hayMas()) {
         if (it.siguiente()->getIdentificacionCliente() == identificacion) {
             cantidad++;
@@ -24,7 +16,7 @@ int Reporte::contarReservasDeCliente(const std::string& identificacion) {
 
 int Reporte::contarReservasDeEspacio(const std::string& codigoEspacio) {
     int cantidad = 0;
-    Iterador<Reserva> it(*reservas);
+    Iterador<Reserva> it(*GestorSistema::getInstancia().getListaReservas());
     while (it.hayMas()) {
         if (it.siguiente()->getCodigoEspacio() == codigoEspacio) {
             cantidad++;
@@ -37,7 +29,7 @@ std::string Reporte::totalReservas() {
     int total = 0;
     int activas = 0;
 
-    Iterador<Reserva> it(*reservas);
+    Iterador<Reserva> it(*GestorSistema::getInstancia().getListaReservas());
     while (it.hayMas()) {
         Reserva* reserva = it.siguiente();
         total++;
@@ -55,7 +47,7 @@ std::string Reporte::clienteConMasReservas() {
     Cliente* mejor = nullptr;
     int maximo = 0;
 
-    Iterador<Cliente> it(*clientes);
+    Iterador<Cliente> it(*GestorSistema::getInstancia().getListaClientes());
     while (it.hayMas()) {
         Cliente* cliente = it.siguiente();
         int cantidad = contarReservasDeCliente(cliente->getIdentificacion());
@@ -76,7 +68,7 @@ std::string Reporte::espacioMasReservado() {
     Espacio* mejor = nullptr;
     int maximo = 0;
 
-    Iterador<Espacio> it(*espacios);
+    Iterador<Espacio> it(*GestorSistema::getInstancia().getListaEspacios());
     while (it.hayMas()) {
         Espacio* espacio = it.siguiente();
         int cantidad = contarReservasDeEspacio(espacio->getCodigo());
@@ -97,7 +89,7 @@ std::string Reporte::reservasActivas() {
     std::string resultado;
     int cantidad = 0;
 
-    Iterador<Reserva> it(*reservas);
+    Iterador<Reserva> it(*GestorSistema::getInstancia().getListaReservas());
     while (it.hayMas()) {
         Reserva* reserva = it.siguiente();
         if (reserva->estaActiva()) {

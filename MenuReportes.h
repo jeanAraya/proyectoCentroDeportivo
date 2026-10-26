@@ -11,19 +11,15 @@
 
 class MenuReportes : public IMenu{
     void gestionReportes();
-    void totalReservas();
-    void clienteConMasReservas();
-    void espacioMasReservado();
     void reservasActivas();
-    Reporte reporte;
-public:
-    ~MenuReportes() = default;
-    void mostrarMenu() override;
-
     std::string reporteTotalReservas();
     std::string reporteClienteConMasReservas();
     std::string reporteEspacioMasReservado();
     std::string reporteReservasActivas();
+    // Reporte reporte;
+public:
+    void mostrarMenu() override;
+    MenuReportes() = default;
 };
 
 

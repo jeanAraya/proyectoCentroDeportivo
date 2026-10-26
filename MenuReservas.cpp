@@ -18,6 +18,7 @@ void MenuReservas::gestionReservas() {
     cout << "2. Mostrar reservas" << endl;
     cout << "3. Cancelar reserva" << endl;
     cout << "4. Buscar reserva" << endl;
+    cout << "5. Listar reservas activas" << endl;
     cout << "0. Salir" << endl;
     cout << "Ingrese una opcion: ";
     cin >> opc;
@@ -33,6 +34,9 @@ void MenuReservas::gestionReservas() {
             break;
         case 4:
             buscarReserva();
+            break;
+        case 5:
+            GestorSistema::getInstancia().reservasActivas();
             break;
         case 0:
             break;
@@ -75,7 +79,14 @@ void MenuReservas::cancelarReserva() {
 }
 
 void MenuReservas::buscarReserva() {
-
+    string cod;
+    cout << "Ingrese el codigo de la reserva a buscar: ";
+    cin >> cod;
+    Reserva* aux = GestorSistema::getInstancia().buscarReserva(cod);
+    if (aux != nullptr) {
+        cout<<aux->toString()<<endl;
+    }
+    cout << "No se encontro la reserva con codigo: " << cod << endl;
 }
 
 void MenuReservas::mostrarMenu() {

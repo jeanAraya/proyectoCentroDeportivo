@@ -15,7 +15,7 @@ void Menu::mostrarMenu() {
     MenuReservas menuReservas;
     MenuReportes menuReportes;
     do {
-        cout << "\n*****************************\n CENTRO DEPORTIVO MULTIUSO \n*****************************" << endl;
+        cout << "\n=========================================\n CENTRO DEPORTIVO MULTIUSO \n=========================================" << endl;
         cout << "1. Gestionar Clientes" << endl;
         cout << "2. Gestionar Espacios" << endl;
         cout << "3. Gestionar Reservas" << endl;
